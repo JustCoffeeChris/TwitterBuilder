@@ -16,7 +16,9 @@ public class BotInterface {
 	public void createInterface() {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Thread loopThread = new Thread();
 
+		loopThread.start();
 		startButton.setText("Start Twitter Bot");
 
 		frame.setSize(500, 250);
@@ -34,11 +36,12 @@ public class BotInterface {
 				TweetBuilder builder = new TweetBuilder(TwitterFactory.getSingleton());
 				builder.addMultipleMessages(new Messages().getMessages());
 
-				builder.tweetLoop();
+				Thread test = new Thread(builder);
+				test.start();
 
 			}
 
 		});
-	}
 
+	}
 }
