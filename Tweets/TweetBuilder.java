@@ -55,6 +55,7 @@ public class TweetBuilder implements Runnable {
 
 		boolean sent = false;
 
+		System.err.println("Remaining Tweets: " + differentMessages.size());
 		while (differentMessages.size() > 1) {
 
 			if (LocalTime.now().getMinute() == 0 && sent == false) {
