@@ -1,4 +1,4 @@
-package Tweets;
+package tweets;
 
 import java.io.File;
 import java.io.FileNotFoundException;

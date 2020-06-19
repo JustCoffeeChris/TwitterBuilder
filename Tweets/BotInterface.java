@@ -1,4 +1,4 @@
-package Tweets;
+package tweets;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import twitter4j.TwitterFactory;
@@ -18,6 +19,7 @@ public class BotInterface {
 	JButton startButton = new JButton();
 	JButton selectFileButton = new JButton();
 	JPanel panel = new JPanel(new FlowLayout());
+	JLabel label = new JLabel();
 	JFileChooser chooser = new JFileChooser();
 	String path;
 
@@ -25,17 +27,23 @@ public class BotInterface {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(panel);
-
+		
 		startButton.setText("Start Twitter Bot");
 		selectFileButton.setText("Select File");
+		label.setText("Remaining Tweets");
 
-		frame.setSize(500, 250);
+		frame.setSize(500, 75);
 		frame.getContentPane().add(startButton);
 		frame.getContentPane().add(selectFileButton);
+		frame.getContentPane().add(label);
 		frame.setVisible(true);
 
 	}
 
+	public void setLabelText(String text) {
+		label.setText(text);
+	}
+	
 	public void buttonEvent() {
 
 		selectFileButton.addActionListener(new ActionListener() {

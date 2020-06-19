@@ -1,4 +1,4 @@
-package Tweets;
+package tweets;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -60,7 +60,9 @@ public class TweetBuilder implements Runnable {
 
 			if (LocalTime.now().getMinute() == 0 && sent == false) {
 				sendTweet(getRandomTweet());
-				System.err.println("Remaining Tweets:" + (differentMessages.size() - 1));
+
+				main.Main.getInterface().setLabelText("Remaining Tweets:" + (differentMessages.size() - 1));
+
 				sent = true;
 			} else if (sent == true && LocalTime.now().getMinute() == 1) {
 				sent = false;
